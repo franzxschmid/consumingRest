@@ -1,5 +1,3 @@
-//TODO build the same for "http://jsonplaceholder.typicode.com/posts/1"
-
 package de.franz.consumingrest;
 
 import org.slf4j.Logger;
@@ -31,10 +29,13 @@ public class Application {
 	@Bean
 	public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
 		return (String[] args) -> {
-                    Quote quote = restTemplate.getForObject("https://gturnquist-quoters.cfapps.io/api/random", Quote.class);
+                    User user = restTemplate.getForObject("http://jsonplaceholder.typicode.com/posts/1", User.class);
+                    //Quote quote = restTemplate.getForObject("https://gturnquist-quoters.cfapps.io/api/random", Quote.class);
                     //Contents of the Quote-Object get logged to Console
-                    log.info(quote.toString());
+                    log.info(user.toString());
                 };
                 
 	}
+
 }
+
